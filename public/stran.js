@@ -6,26 +6,21 @@ function dodaj_naziv(ime, cena) {
 
     element.appendChild(document.createTextNode(ime));
 
-    document.getElementById('nazivi').appendChild(element);
+    document.getElementById('naziv').appendChild(element);
 
     cene.push([ime, cena]);
 }
 
 function izberi() {
-    let elm = document.getElementsByClassName('naziv')[0];
-    let nazivi = document.getElementById('nazivi');
+    let elm = document.getElementById('naziv');
+    let nazivi = document.getElementById('naziv');
     let cenaElm = document.getElementsByClassName('cena')[0];
 
-    for (let vino of nazivi.children) {
-        if (elm.value == vino.value) {
-            for (let cena of cene) {
-                if (cena[0] == elm.value) {
-                    cenaElm.value = cena[1];
-                }
-            }
+    for (let cena of cene) {
+        if (cena[0] == elm.value) {
+            cenaElm.value = cena[1];
         }
     }
-
 }
 
 function izprazni(flag) {
@@ -115,9 +110,9 @@ function racun_info(racun) {
 
 function dodaj_izdelek() {
 
-    let naziv = document.getElementsByClassName('naziv')[0].value;
+    let naziv = document.getElementById('naziv').value;
     let kolicina = parseInt(document.getElementsByClassName('kolicina')[0].value);
-    let enota = document.getElementsByClassName('Enota')[0].value;
+    let enota = document.getElementById('Enota').value;
     let cena = parseFloat(document.getElementsByClassName('cena')[0].value);
     let vrednost = "" + (cena * kolicina);
 
@@ -257,7 +252,7 @@ function dokoncaj() {
 
 function dodaj_v_kosarico() {
     let idea = document.getElementsByClassName('noteGrid')[0];
-    let ime_izdelka = document.getElementsByClassName('naziv')[0];
+    let ime_izdelka = document.getElementById('naziv');
 
     if (ime_izdelka.value == "") {
         return;

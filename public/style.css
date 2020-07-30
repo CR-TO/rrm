@@ -19,6 +19,26 @@ body {
     transform-origin: 15 0;
 }
 
+select {
+    border: 2;
+    background: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    margin: 20px auto;
+    text-align: center;
+    border: 2px solid #0f756d8c;
+    padding: 13px;
+    width: 200px;
+    color: white;
+}
+
+select:focus{
+    background: #191919;
+}
+
+select:hover{
+    border: 2px solid #ade42f;
+}
 
 input[type = "text"] {
     border: 0;

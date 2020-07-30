@@ -46,7 +46,7 @@ function enote() {
 
         element.appendChild(document.createTextNode("" + (0.75 * i) + "l"));
 
-        document.getElementById('enote').appendChild(element);
+        document.getElementById('Enota').appendChild(element);
     }
 }
 

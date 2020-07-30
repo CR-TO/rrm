@@ -32,9 +32,15 @@
 
     <div class="wrapper">
       <div class="select">
-        <input type="text" onfocus="izberi()" oninput="izberi()" list="nazivi" class="naziv" placeholder="naziv">
+        <!-- input type="text" onfocus="izberi()" oninput="izberi()" list="nazivi" class="naziv" placeholder="naziv" -->
+        <select id="naziv" onclick="izberi()">
+          <option value="naziv" disabled selected>NAZIV</option>
+        </select>
         <input type="text" class="kolicina" placeholder="kolicina">
-        <input type="text" class="Enota" value="0.75l" list="enote" placeholder="enota">
+        <!--input type="text" class="Enota" value="0.75l" list="enote" placeholder="enota" -->
+        <select id="Enota">
+          
+        </select>
         <input type="text" class="cena" placeholder="cena">
         <datalist id="nazivi">
         </datalist>
