@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://unpkg.com/jspdf "></script>
+  <script src="https://unpkg.com/jspdf-autotable"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <meta charset="utf-8" />
+  <div class="metadata"></div>
+</head>
+
+<body>
+
+  <div class="box">
+
+    <label class='info'></label>
+    <hr>
+    <div class="placnik">
+      <h1>Placnik</h1>
+      <div class="wrapper">
+        <div class="select">
+          <input type="text" class="naslovnik" placeholder="Naslovnik">
+          <input type="text" class="naslov" placeholder="Naslov">
+          <input type="text" class="posta" placeholder="Posta">
+          <input type="text" class="ds" placeholder="Davcna stevilka">
+        </div>
+        <input type="submit" class="dodP" value="Dodaj placnika">
+      </div>
+    </div>
+    <hr>
+
+    <div class="wrapper">
+      <div class="select">
+        <input type="text" oninput="izberi()" list="nazivi" class="naziv" placeholder="naziv">
+        <input type="text" class="kolicina" placeholder="kolicina">
+        <input type="text" class="Enota" value="0.75l" list="enote" placeholder="enota">
+        <input type="text" class="cena" placeholder="cena">
+        <datalist id="nazivi">
+        </datalist>
+        <datalist id='popusti'></datalist>
+        <datalist id='enote'></datalist>
+      </div>
+      <input type="text" class="popust" list='popusti' placeholder="popust">
+      <input type="submit" class="submit" value="Dodaj izdelek" onclick="dodaj_v_kosarico()">
+      <input type="submit" value="Pocisti" class="submit" onclick="izprazni()">
+    </div>
+
+    <div class="notes">
+      <h1> Košarica: </h1>
+      <div class="noteGrid"></div>
+    </div>
+
+    <div class="bottomHolder">
+      <h1>DATUM RAČUNA:</h1>
+      <input type="text" class="datum">
+      <p onclick="open_options()">&#9432</p>
+      <div class="tmp">
+        <h1 class="htrr">trr</h1>
+        <input type="text" class="trr" value="0444 0022 7302 343">
+        <h1 class="htrr">kraj</h1>
+        <input type="text" class="kraj" value="Kozana">
+      </div>
+    </div>
+
+  </div>
+
+  <script src="basic.js"></script>
+  <script src="stran.js"></script>
+  <script src="options.js"></script>
+
+
+</body>
+
+</html>

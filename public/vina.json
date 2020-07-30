@@ -1,0 +1,61 @@
+{
+    "vina" :
+    [
+        {
+            "ime": "Rebula 2015",
+            "cena": 7
+        },
+        {
+            "ime": "Malvazija 2015",
+            "cena": 7
+        },
+        {
+            "ime": "Extok 2015",
+            "cena": 7
+        },  
+        {
+            "ime": "Chardonnay 2015",
+            "cena": 7
+        }, {
+            "ime": "Quartet 2012",
+            "cena": 10
+        }, {
+            "ime": "Sivi Pinot 2012",
+            "cena": 10
+        }, {
+            "ime": "Beli Pinot 2018",
+            "cena": 22
+        }, {
+            "ime": "MacTok 2013",
+            "cena": 15
+        },
+        {
+            "ime": "Sauvignon 2011",
+            "cena": 18
+        },
+        {
+            "ime": "Rebula 'Rakac' 2011",
+            "cena": 18
+        },
+        {
+            "ime": "Chardonnay 2011",
+            "cena": 18
+        },
+        {
+            "ime": "Sauvignon 2009",
+            "cena": 20
+        },
+        {
+            "ime": "Deuces red 2013",
+            "cena": 10
+        },
+        {
+            "ime": "Merlot 2011",
+            "cena": 18
+        },
+        {
+            "ime": "Cabernet Sauvignon 2013",
+            "cena": 20
+        }
+    ]
+}
