@@ -8,7 +8,7 @@ let izdelki = [];
 let lock = false;
 let doc = new jsPDF(options);
 
-document.getElementsByClassName('datum')[0].value = new Date(Date.now()).getDate() + "." + new Date(Date.now()).getMonth() + 1 + "." + new Date(Date.now()).getFullYear();
+document.getElementsByClassName('datum')[0].value = getDateString();
 
 let getData = () => {
     const xhr = new XMLHttpRequest();
@@ -17,6 +17,12 @@ let getData = () => {
         document.getElementsByClassName('metadata')[0].innerHTML = parseInt(xhr.response) + 1;
     };
     xhr.send();
+}
+
+function getDateString() {
+    return ("0" + (new Date(Date.now()).getDate())).slice(-2) + 
+            "." + ("0" + (new Date(Date.now()).getMonth() + 1)).slice(-2) + 
+            "." + new Date(Date.now()).getFullYear();
 }
 
 function popusti() {

@@ -76,6 +76,7 @@ input[type = "submit"]{
 .notes{
     background: #3686d6b6;
     opacity: 0.45;
+    margin: 5%;
 }
 
 .notes h1 {
@@ -150,14 +151,10 @@ input[type = "submit"]{
 }
 
 input[class = "nr"]{
-    transform: scale(1.25);
-}
-
-.nr {
     position: relative;
     text-transform: uppercase;
     font-size: 20px;
-    left: 80%;
+    margin-left: 80%;
 }
 
 .placnik {
