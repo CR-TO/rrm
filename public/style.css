@@ -77,6 +77,23 @@ input[type = "submit"]{
     transition: 300ms;
 }
 
+.cenaHolder {
+    display: inline;
+}
+
+.cenaHolder p {
+    color: #808080;
+    font-size: 25px;
+    font-family: monospace;
+    font-weight: 500;
+    margin: 0;
+    margin-left: 12%;
+    max-width: 63px;
+    padding: 5px;
+    background: transparent;
+    border: 3px solid lightgrey;
+}
+
 .wrapper {
     display: flex;
     grid-column-gap: 20px;

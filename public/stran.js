@@ -179,6 +179,32 @@ document.getElementsByClassName('dodP')[0].onclick = () => {
     }
 
     if (flag1 == "" || flag2 == "" || flag3 == "" || flag4 == "") {
+
+        if (flag1 == "") {
+            document.getElementsByClassName('naslovnik')[0].style = "border-color: red";
+            document.getElementsByClassName('naslovnik')[0].onclick = ()=>{
+                document.getElementsByClassName('naslovnik')[0].style = "border-color:#0f756d8c";
+            }
+        }
+        if (flag2 == "") {
+            document.getElementsByClassName('naslov')[0].style = "border-color: red"
+            document.getElementsByClassName('naslov')[0].onclick = ()=>{
+                document.getElementsByClassName('naslov')[0].style = "border-color:#0f756d8c";
+            }
+        }if (flag3 == "") {
+            document.getElementsByClassName('posta')[0].style = "border-color: red";
+            document.getElementsByClassName('posta')[0].onclick = ()=>{
+                document.getElementsByClassName('posta')[0].style = "border-color:#0f756d8c";
+            }
+        }if (flag4 == "") {
+            document.getElementsByClassName('ds')[0].style = "border-color: red"
+            document.getElementsByClassName('ds')[0].onclick = ()=>{
+                document.getElementsByClassName('ds')[0].style = "border-color:#0f756d8c";
+            }
+        }
+
+
+
         document.getElementsByClassName('info')[0].style.color = "red";
         document.getElementsByClassName('info')[0].style.animationPlayState = "running";
         document.getElementsByClassName('info')[0].innerHTML = "! Mankajoci podatki !";
@@ -253,6 +279,8 @@ function dokoncaj() {
 function dodaj_v_kosarico() {
     let idea = document.getElementsByClassName('noteGrid')[0];
     let ime_izdelka = document.getElementById('naziv');
+    let kolicina = document.getElementsByClassName('kolicina')[0];
+    let cena = document.getElementsByClassName('cena')[0];
 
     if (ime_izdelka.value == "") {
         return;
@@ -299,7 +327,22 @@ function dodaj_v_kosarico() {
             }
             izprazni(true);
 
+            document.getElementsByClassName('info')[0].innerHTML = "";
         } else {
+
+            if(kolicina.value == "" ){
+                kolicina.style = "border-color:red";
+                kolicina.onclick = () => {
+                    kolicina.style = "border-color:#0f756d8c";
+                }
+            }
+            if(cena.value == "" ){
+                cena.style = "border-color:red";
+                cena.onclick = () => {
+                    cena.style = "border-color:#0f756d8c";
+                }
+            }
+
             document.getElementsByClassName('info')[0].style.color = "red";
             document.getElementsByClassName('info')[0].style.animationPlayState = "running";
             document.getElementsByClassName('info')[0].innerHTML = "! Neveljavn izdelek !";
