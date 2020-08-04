@@ -1,4 +1,5 @@
 
+
 .metadata{
     position: absolute;
     visibility: hidden;
@@ -7,23 +8,23 @@
 body {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    min-height: 100vh;
-    margin: 0 auto;
-    padding: 0;
     font-family: sans-serif;
     background: rgb(180, 161, 126);
-    transform: scale(0.95);
-    transform-origin: 15 0;
+
+    zoom: 1.30; /* IE */
+    -moz-transform: scale(0.75); /* Firefox */
+    -moz-transform-origin: center;
+    -o-transform: scale(0.75); /* Opera */
+    -o-transform-origin: center;
+    -webkit-transform: scale(0.25) ; /* Safari And Chrome */
+    -webkit-transform-origin: center;
+    transform: scale(0.70); /* Standard Property */
+    transform-origin: center;  /* Standard Property */
 }
 
 select {
     border: 2;
-    background: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+    background: none;   
     margin: 20px auto;
     text-align: center;
     border: 2px solid #0f756d8c;
@@ -60,7 +61,6 @@ input[type = "text"]:hover{
 input[type = "submit"]:hover{
     background: #ade42f;
 }
-
 input[type = "submit"]{
     border: 0;
     background: none;
@@ -103,14 +103,14 @@ input[type = "submit"]{
     
     width: auto;
     height: auto;
-    padding: 40px;
-    position: absolute;
-    top: 5%;
+    padding: 5%;
+    text-align: center;
     background: #191919;
     text-align: left;
+    margin-bottom: 0;
 }
 
-.notes{
+.notes {
     background: #3686d6b6;
     opacity: 0.45;
     margin: 5%;
@@ -188,10 +188,9 @@ input[type = "submit"]{
 }
 
 input[class = "nr"]{
-    position: relative;
     text-transform: uppercase;
     font-size: 20px;
-    margin-left: 80%;
+    margin-left: 6%;
 }
 
 .placnik {
@@ -218,15 +217,12 @@ label{
     animation-name: fade;
     animation-duration: 800ms;
     animation-play-state: paused;
-    
-    position: relative;
     color: red;
     font-family: monospace;
     font-size: 20px;
     font-weight: 505;
     text-transform: uppercase;
-    text-align: center;
-    left: 48%;
+
 }
 
 .bottomHolder {
@@ -312,4 +308,10 @@ label{
 
 .htrr {
     visibility: hidden;
+}
+
+#pinfo {
+    width: 100%;
+    padding: 1%;
+    background-color: rgba(0, 255, 255, 0.233);
 }
