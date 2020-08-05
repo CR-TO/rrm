@@ -371,7 +371,7 @@ function dodaj_v_kosarico() {
                 button.className = "nr";
                 button.value = "Dokoncaj";
                 button.onclick = () => {
-                    dokoncaj();
+                    writeFile();
                 }
                 document.getElementsByClassName('notes')[0].appendChild(button);
             }

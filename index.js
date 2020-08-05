@@ -25,6 +25,9 @@ app.get('/st', (req, res) => {
 })
 
 app.post('/wf', (req, res) => {
+
+    console.log("Preparing to write file " + req.body.name);
+
     fs.writeFile("racuni/" + req.body.name + ".pdf", req.body.file,'binary', function (err) {
         if (err) throw err;
         res.send('Done')
