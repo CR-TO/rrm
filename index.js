@@ -7,6 +7,7 @@ var bodyParser = require('body-parser')
 
 const app = express();
 let server = app.listen(3000, () => {
+    console.log("Starting server!");
     console.log("Listening to port 3000!");
 });
 
