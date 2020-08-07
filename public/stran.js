@@ -58,7 +58,7 @@ function izprazni(flag) {
     izdelki = [];
 
     let len = elm.length;
-    
+
     for (let i = 0; i < len; i++) {
         elm[i].remove();
         i = i - 1;
@@ -67,8 +67,17 @@ function izprazni(flag) {
 
     len = document.getElementsByClassName("pi").length;
 
-    for(let i = 0; i < len;i++){
+    for (let i = 0; i < len; i++) {
         document.getElementsByClassName("pi")[i].remove();
+        i = i - 1;
+        len = len - 1;
+    }
+
+    len = document.getElementsByClassName('nP').length;
+
+    for (let i = 0; i < len; i++) {
+        document.getElementsByClassName("nP")[i].remove();
+        document.getElementsByClassName("nW")[i].remove();
         i = i - 1;
         len = len - 1;
     }
@@ -80,45 +89,76 @@ function generatePDF(img) {
 
 
 function dodaj_placnika(data) {
-
-
-    doc.setFont('courier', 'bold');
-    doc.setFontSize(15);
-
-    doc.text('Placnik:', 10, 100);
-
-    let x = 10;
-
-    doc.setFontSize(12);
-    doc.setFont('courier', 'normal');
-
-    doc.text(data.naslovnik, x, 110);
-    doc.text(data.naslov, x, 119);
-    doc.setFontSize(10);
-    doc.text(data.posta, x, 125);
-    doc.setFontSize(12);
-    if (data.ds != undefined) {
-        doc.text("DŠ:" + data.ds, x, 135);
-    }
-
     let nN = document.createElement("p");
+    let nP = document.createElement("span");
+    let nW = document.createElement("div");
+
+    nW.className = "nW";
+
     nN.className = "pi";
-    nN.value = "Name: " + data.naslovnik;
-    nN.innerHTML = "Name: " + data.naslovnik;
-    document.getElementById('pinfo').appendChild(nN);
+    nN.value = "Naslovnik:";
+    nN.innerHTML = "Naslovnik:";
+    nW.appendChild(nN);
+
+    nP.className = "nP";
+    nP.spellcheck = false;
+    nP.contentEditable = true;
+    nP.value = data.naslovnik;
+    nP.innerHTML = data.naslovnik;
+    nW.appendChild(nP);
+
+    document.getElementById('pinfo').appendChild(nW);
+
     nN = document.createElement("p");
+    nP = document.createElement("span");
+    nW = document.createElement("div");
+    nW.className = "nW";
+
     nN.className = "pi";
-    nN.value = "Naslov: " + data.naslov;
-    nN.innerHTML = "Naslov: " + data.naslov;
-    document.getElementById('pinfo').appendChild(nN);
+    nP.contentEditable = true;
+    nP.spellcheck = false;
+    nN.value = "Naslov: ";
+    nN.innerHTML = "Naslov: ";
+    nW.appendChild(nN);
+
+
+    nP.className = "nP";
+    nP.value = data.naslov;
+    nP.innerHTML = data.naslov;
+    nW.appendChild(nP);
+
+
+    document.getElementById('pinfo').appendChild(nW);
+
+
     nN = document.createElement("p");
+    nP = document.createElement("span");
+    nW = document.createElement("div");
+    nW.className = "nW";
+
+
     nN.className = "pi";
-    nN.value = "Posta: " + data.posta;
-    nN.innerHTML = "Posta: " + data.posta;
-    document.getElementById('pinfo').appendChild(nN);
-    nN = document.createElement("p");
-    nN.className = "pi";
-    nN.value = "Davcna st.: " + data.ds;
+    nN.value = "Posta: ";
+    nN.innerHTML = "Posta: ";
+    nW.appendChild(nN);
+
+    nP.className = "nP";
+    nP.value = data.posta;
+    nP.contentEditable = true;
+    nP.spellcheck = false;
+    nP.innerHTML = data.posta;
+    nW.appendChild(nP);
+
+
+    document.getElementById('pinfo').appendChild(nW);
+
+
+
+
+
+    //nN = document.createElement("p");
+    //nN.className = "pi";
+    //nN.value = "Davcna st.: " + data.ds;
     //nN.innerHTML = "Davcna st.: " + data.ds;
     //document.getElementById('pinfo').appendChild(nN);
 
@@ -207,10 +247,10 @@ function naredi_tabelo() {
     })
 }
 
-document.getElementsByClassName('dodP')[0].onclick = () => {
-    let flag1 = document.getElementsByClassName('naslovnik')[0].value;
-    let flag2 = document.getElementsByClassName('naslov')[0].value;
-    let flag3 = document.getElementsByClassName('posta')[0].value;
+function dodP() {
+    let flag1 = document.getElementsByClassName('nP')[0].value;
+    let flag2 = document.getElementsByClassName('nP')[1].value;
+    let flag3 = document.getElementsByClassName('nP')[2].value;
     let flag4 = document.getElementsByClassName('ds')[0].value;
 
     if (lock) {
@@ -255,13 +295,6 @@ document.getElementsByClassName('dodP')[0].onclick = () => {
         return;
     }
 
-    dodaj_placnika({
-        naslovnik: flag1,
-        naslov: flag2,
-        posta: flag3,
-        ds: flag4
-    });
-
     lock = true;
 
     document.getElementsByClassName('info')[0].style.color = "green";
@@ -270,7 +303,25 @@ document.getElementsByClassName('dodP')[0].onclick = () => {
 
 }
 
+document.getElementsByClassName('dodP')[0].onclick = () => {
+
+    let flag1 = document.getElementsByClassName('naslovnik')[0].value;
+    let flag2 = document.getElementsByClassName('naslov')[0].value;
+    let flag3 = document.getElementsByClassName('posta')[0].value;
+    let flag4 = document.getElementsByClassName('ds')[0].value;
+
+
+    dodaj_placnika({
+        naslovnik: flag1,
+        naslov: flag2,
+        posta: flag3,
+        ds: flag4
+    });
+}
+
 async function dokoncaj() {
+
+    dodP();
 
     getData();
 
@@ -289,6 +340,34 @@ async function dokoncaj() {
     doc.setFontSize(12);
     doc.text("Reja Silvan in Bortu Kozana 90a", 10, 20);
     doc.text("5212 Dobrovo", 10, 30);
+
+
+    let flag1 = document.getElementsByClassName('nP')[0].innerHTML;
+    let flag2 = document.getElementsByClassName('nP')[1].innerHTML;
+    let flag3 = document.getElementsByClassName('nP')[2].innerHTML;
+    let flag4 = document.getElementsByClassName('ds')[0].value;
+
+    doc.setFont('courier', 'bold');
+    doc.setFontSize(15);
+
+    doc.text('Placnik:', 10, 100);
+
+    let x = 10;
+
+    doc.setFontSize(12);
+    doc.setFont('courier', 'normal');
+
+    doc.text(flag1, x, 110);
+    doc.text(flag2, x, 119);
+    doc.setFontSize(10);
+    doc.text(flag3, x, 125);
+    doc.setFontSize(12);
+    if (flag4 != undefined) {
+        doc.text("DŠ:" + flag4, x, 135);
+    }
+
+
+
 
     getData();
 
@@ -405,8 +484,6 @@ async function writeFile() {
     if (wrk) {
 
         getData();
-
-        console.log(document.getElementsByClassName('metadata')[0].innerHTML)
 
         const xhr = new XMLHttpRequest();
         xhr.open('POST', '/wf', true);
